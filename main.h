@@ -7,7 +7,7 @@
 #include <limits.h>
 
 /**
- * struct formats - Struct template
+ * struct formats - Struct template for format specifiers and functions
  *
  * @specifier: format name
  * @format_handler: function pointer
