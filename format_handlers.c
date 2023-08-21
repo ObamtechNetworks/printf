@@ -38,3 +38,49 @@ int print_percent(va_list ab)
 
 	return (_putchar('%'));
 }
+
+/**
+ * print_integer - prints an integer
+ * @ab: Argument Pointer
+ * Return: Number of bytes
+ */
+
+int print_integer(va_list ab)
+{
+	int num = va_arg(ab, int);
+	int len = 0;
+	int divisor, sign = -1;
+	char digit;
+
+	if (num == 0)
+	{
+		len += write(1, 0, 1);
+		return (len);
+	}
+
+	if (num == INT_MIN)
+	{
+		len += write(1, "-214783648", 11);
+		return (len);
+	}
+
+	if (num < 0)
+	{
+		len += write(1, "-", 1);
+		num = num * sign;
+	}
+	divisor = 1;
+	while (divisor <= num / 10)
+		divisor *= 10;
+	while (divisor > 0)
+	{
+		digit = '0' + (num / divisor);
+		write(1, &digit, 1);
+		num %= divisor;
+		divisor /= 10;
+		len++;
+	}
+
+	return (len);
+}
+
