@@ -33,7 +33,7 @@ int print_string(va_list ab)
  */
 int print_percent(va_list ab)
 {
-	(void)b;
+	(void)ab;
 
 	return (_putchar('%'));
 }
