@@ -2,18 +2,18 @@
 
 /**
  * print_char - prints a character
- * @args: the argument to print
+ * @ab: the argument to print
  * Return: Retunrs the total number of character
  */
 int print_char(va_list ab)
 {
 	char c = va_arg(ab, int);
-	
+
 	return (_putchar(c));
 }
 /**
  * print_string - prints a string
- * @args: the argumetnt list to print
+ * @ab: the argumetnt list to print
  * Return: Returns the total number of strings
  */
 int print_string(va_list ab)
@@ -28,7 +28,8 @@ int print_string(va_list ab)
 	return (count);
 }
 /**
- * print_percent - this percentage
+ * print_percent - prints percentage
+ * @ab: the argument list to print
  * Return: nothing
  */
 int print_percent(va_list ab)
