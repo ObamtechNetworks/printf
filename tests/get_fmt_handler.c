@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * get_fmt_handler - gets the equivalent format handler function
- * @str: the char specifier to detect its matching function
+ * @specifier: the specifier to detect its matching function
  * Return: returns the length of the argunments printed
  */
 int (*get_fmt_handler(char str))(va_list)
@@ -10,10 +10,10 @@ int (*get_fmt_handler(char str))(va_list)
 		{'c', print_char},
 		{'s', print_string},
 		{'%', print_percent},
-		{'d', print_integer},
-		{'i', print_integer}
-		/*{'n', print_newline},*/
-		/*{'t', print_tab}*/
+		{'n', print_newline},
+		{'t', print_tab}
+		/*{'d', print_int},*/
+		/*{'i', print_int}*/
 	};
 	int i = 0;
 	int size = sizeof(specifier_arr) / sizeof(specifier_arr[0]);
@@ -30,20 +30,4 @@ int (*get_fmt_handler(char str))(va_list)
 	}
 	/*if no match is found, return NULL*/
 	return (NULL);
-}
-
-/**
- * get_fmt - Searches for the format function
- * @s: format string
- * @ab: Argument Pointer
- * Return: Number of bytes
- */
-
-int get_fmt(char *s, va_list ab)
-{
-	int (*f)(va_list) = get_fmt_handler(s);
-
-	if (f)
-		return ((f(ab)));
-	return (0);
 }
