@@ -24,11 +24,11 @@ typedef struct formats
 
 /* get_fmt_handler.c module */
 int (*get_fmt_handler(char *s))(va_list ab);
-int get_func(char *s, va_list ab);
+int get_fmt(char *s, va_list ab);
 
 /* format_handler.c module */
-int print_percent_sign(va_list);
-int print_character(va_list ab);
+int print_percent(va_list);
+int print_char(va_list ab);
 int print_string(va_list ab);
 int print_integer(va_list ab);
 

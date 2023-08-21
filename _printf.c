@@ -27,8 +27,8 @@ int _printf(const char *format, ...)
 		}
 		charac++;
 
-		if (get_spec_fun(charac))
-			len += get_func(charac, ab);
+		if (get_fmt_handler(charac))
+			len += get_fmt(charac, ab);
 		else
 			len += _putchar(*charac);
 	}
