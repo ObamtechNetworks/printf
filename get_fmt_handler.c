@@ -31,3 +31,19 @@ int (*get_fmt_handler(char str))(va_list)
 	/*if no match is found, return NULL*/
 	return (NULL);
 }
+
+/**
+ * get_fmt - Searches for the format function
+ * @s: format string
+ * @ab: Argument Pointer
+ * Return: Number of bytes
+ */
+
+int get_fmt(char *s, va_list ab)
+{
+	int (*f)(va_list) = get_fmt_handler(s);
+
+	if (f)
+		return ((f(ab)));
+	return (0);
+}
