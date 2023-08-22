@@ -56,13 +56,14 @@ int print_integer(va_list ab)
 
 	if (num == 0)
 	{
-		len += _putchar(48);
+		_putchar('0');
+		len++;
 		return (len);
 	}
 
 	if (num == INT_MIN)
 	{
-		char *int_min = "-214783648";
+		char *int_min = "-2147483648";
 		int i;
 
 		for (i = 0; int_min[i] != '\0'; i++)
