@@ -35,6 +35,9 @@ int print_integer(va_list ab);
 /* _putchar.c module */
 int _putchar(char c);
 
+/* _strlen.c module */
+unsigned int _strlen(const char *str);
+
 /* _printf.c module */
 int _printf(const char *format, ...);
 
