@@ -7,9 +7,11 @@
  */
 int print_char(va_list ab)
 {
-	char c = va_arg(ab, int);
+	int len = 0, c = va_arg(ab, int);
 
-	return (_putchar(c));
+	len += _putchar(c);
+
+	return (len);
 }
 /**
  * print_string - prints a string

@@ -14,20 +14,17 @@ int (*get_fmt_handler(char *str))(va_list)
 		{"i", print_integer},
 		{NULL, NULL}
 	};
+
 	int i = 0;
-	int size = sizeof(specifier_arr) / sizeof(specifier_arr[0]);
-	/* loop through the array struct and map individual functions */
-	while (i < size)
+
+	while (specifier_arr[i].specifier)
 	{
-		/*check comparsion of given argument if exists in arr struct*/
-		if (specifier_arr[i].specifier[0] == *str)
+		if (*str == specifier_arr[i].specifier[0])
 		{
-			/* call or return the equivalent function pointer*/
 			return (specifier_arr[i].format_handler);
 		}
-		i++; /*for iterating if first instance didn't match */
+		i++;
 	}
-	/*if no match is found, return NULL*/
 	return (NULL);
 }
 
