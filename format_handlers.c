@@ -84,7 +84,7 @@ int print_integer(va_list ab)
 	while (divisor > 0)
 	{
 		digit = '0' + (num / divisor);
-		write(1, &digit, 1);
+		_putchar(digit);
 		num %= divisor;
 		divisor /= 10;
 		len++;
