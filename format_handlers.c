@@ -75,6 +75,7 @@ int print_integer(va_list ab)
 	if (num < 0)
 	{
 		num = num * sign;
+		len += _putchar('-');
 	}
 	divisor = 1;
 	while (divisor <= num / 10)
