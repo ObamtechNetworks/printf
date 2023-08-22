@@ -58,19 +58,22 @@ int print_integer(va_list ab)
 
 	if (num == 0)
 	{
-		len += write(1, 0, 1);
+		len += _putchar(48);
 		return (len);
 	}
 
 	if (num == INT_MIN)
 	{
-		len += write(1, "-214783648", 11);
+		char *int_min = "-214783648";
+
+		for (i = 0; *int_min; i++)
+			len += _putchar(int_min[i]);
+
 		return (len);
 	}
 
 	if (num < 0)
 	{
-		len += write(1, "-", 1);
 		num = num * sign;
 	}
 	divisor = 1;
