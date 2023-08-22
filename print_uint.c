@@ -11,12 +11,24 @@ int print_uint(va_list ab)
 	unsigned int temp = numb;
 	int numbers = 0;
 
-	for (; temp > 0; numbers++)
+	/*handle overflow edge case*/
+	if (numb > (UINT_MAX / 10))
 	{
-		temp = temp / 10;
-		divisor = divisor * 10;
+		while (numb > 0)
+		{
+			_putchar(numb % 10 + '0');
+			numb /= 10;
+			numbers++;
+		}
 	}
-
+	else
+	{
+		for (; temp > 0; numbers++)
+		{
+			temp = temp / 10;
+			divisor = divisor * 10;
+		}
+	}
 	/*print unsigned integer*/
 	while (divisor > 1)
 	{
