@@ -65,7 +65,7 @@ int print_integer(va_list ab)
 		char *int_min = "-214783648";
 		int i;
 
-		for (i = 0; *int_min; i++)
+		for (i = 0; int_min[i] != '\0'; i++)
 			len += _putchar(int_min[i]);
 
 		return (len);
