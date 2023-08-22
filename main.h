@@ -31,6 +31,7 @@ int print_percent(va_list);
 int print_char(va_list ab);
 int print_string(va_list ab);
 int print_integer(va_list ab);
+int print_uint(va_list ab);
 
 /* _putchar.c module */
 int _putchar(char c);
