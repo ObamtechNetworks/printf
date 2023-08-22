@@ -52,9 +52,7 @@ int print_percent(va_list ab)
 int print_integer(va_list ab)
 {
 	int num = va_arg(ab, int);
-	int len = 0;
-	int divisor, sign = -1;
-	char digit;
+	int len = 0, divisor;
 
 	if (num == 0)
 	{
@@ -75,16 +73,16 @@ int print_integer(va_list ab)
 
 	if (num < 0)
 	{
-		num = num * sign;
-		len += _putchar('-');
+		_putchar('-');
+		num = -num;
+		len++;
 	}
 	divisor = 1;
-	while (divisor <= num / 10)
+	while (num / divisor >= 10)
 		divisor *= 10;
-	while (divisor > 0)
+	while (divisor != 0)
 	{
-		digit = '0' + (num / divisor);
-		_putchar(digit);
+		_putchar('0' + (num / divisor));
 		num %= divisor;
 		divisor /= 10;
 		len++;
