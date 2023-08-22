@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 {
 	int len = 0; /* declare and init len to keep track of bytes output */
 	va_list ab; /*create variable of type va_list */
-	char *charac; /* Pointer var to keep track of each char in format */
+	char *charac, *start; /* Pointer var to keep track of each char in format */
 
 	va_start(ab, format);
 
@@ -18,21 +18,21 @@ int _printf(const char *format, ...)
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
-	if (_strlen(format) == 0 || format == NULL)
-		return (-1);
+
 	for (charac = (char *)format; *charac; charac++)
 	{
 		if (*charac != '%')
 		{
-			len += write(1, &*charac, 1);
+			len += _putchar(*charac);
 			continue;
 		}
+		start = charac;
 		charac++;
 
 		if (get_fmt_handler(charac))
 			len += get_fmt(charac, ab);
 		else
-			len += _putchar(*charac);
+			len += print_start_fin(start, charac);
 	}
 	va_end(ab);
 	return (len);
