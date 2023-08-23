@@ -51,44 +51,5 @@ int print_percent(va_list ab)
 
 int print_integer(va_list ab)
 {
-	int num = va_arg(ab, int);
-	int len = 0, divisor;
-
-	if (num == 0)
-	{
-		_putchar('0');
-		len++;
-		return (len);
-	}
-
-	if (num == INT_MIN)
-	{
-		char *int_min = "-2147483648";
-		int i;
-
-		for (i = 0; int_min[i] != '\0'; i++)
-			len += _putchar(int_min[i]);
-
-		return (len);
-	}
-
-	if (num < 0)
-	{
-		_putchar('-');
-		num = -num;
-		len++;
-	}
-	divisor = 1;
-	while (num / divisor >= 10)
-		divisor *= 10;
-	while (divisor != 0)
-	{
-		_putchar('0' + (num / divisor));
-		num %= divisor;
-		divisor /= 10;
-		len++;
-	}
-
-	return (len);
+	return (print_int_base(ab, 10));
 }
-
