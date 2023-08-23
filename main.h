@@ -5,12 +5,12 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <limits.h>
+#include <stdlib.h>
 
 /**
  * struct formats - Struct template for format specifiers and functions
  *
  * @specifier: format name
- * @base: base value for numbers / coversions
  * @format_handler: function pointer
  *
  * Description: Provides a template of two struct members where
@@ -33,9 +33,19 @@ int print_char(va_list ab);
 int print_string(va_list ab);
 int print_integer(va_list ab);
 int print_uint(va_list ab);
+int print_hex_low(va_list ab);
+int print_hex_high(va_list ab);
+int print_octal(va_list ab);
+int print_binary(va_list ab);
 
 /* _putchar.c module */
 int _putchar(char c);
+
+/* print_uint */
+int print_uint(va_list ab);
+
+/*base conversion helper*/
+int print_int_base(va_list ab, int base);
 
 /* print_start_finish.c module*/
 int print_start_fin(char *start, char *stop);
