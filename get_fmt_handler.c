@@ -7,15 +7,12 @@
 int (*get_fmt_handler(char *str))(va_list)
 {
 	check_format specifier_arr[] = {
-		{"c", 10, print_char},
-		{"s", 10, print_string},
-		{"%", 10, print_percent},
-		{"d", 10, print_integer},
-		{"i", 10, print_integer},
-		{"u", 10, print_uint},
-		{"o", 8, print_integer},
-		{"h", 16, print_integer},
-		{NULL, 10, NULL}
+		{"c", print_char},
+		{"s", print_string},
+		{"%", print_percent},
+		{"d", print_integer},
+		{"i", print_integer},
+		{NULL, NULL}
 	};
 
 	int i = 0;

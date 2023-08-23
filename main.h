@@ -20,7 +20,6 @@
 typedef struct formats
 {
 	char *specifier;
-	int base; /*add this field for base conversions*/
 	int (*format_handler)(va_list);
 } check_format;
 
@@ -34,8 +33,6 @@ int print_char(va_list ab);
 int print_string(va_list ab);
 int print_integer(va_list ab);
 int print_uint(va_list ab);
-int print_octal(va_list ab);
-int print_int_base(va_list ab, int base);
 
 /* _putchar.c module */
 int _putchar(char c);
