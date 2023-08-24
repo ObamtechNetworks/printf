@@ -9,7 +9,7 @@ int print_octal(va_list ab)
 	unsigned int numb = va_arg(ab, unsigned int);
 	unsigned int divisor = 8, temp = numb;
 	int len = 0, i = 0, count_chars = 0;
-	char memo[32];/*fixed size of an octal*/
+	char *memo;/*for size of an octal*/
 
 	/*when number is 0*/
 	if (numb == 0)
@@ -24,14 +24,22 @@ int print_octal(va_list ab)
 		temp = temp / divisor;/*base 8*/
 		len++;
 	}
+	/*create a space in memory to handle even large numbers*/
+	memo = (char *)malloc(sizeof(char) * (len + 1));/*1 byte for null*/
+	/*handled malloc error*/
+	if (memo == NULL)
+		return (-1);
+	memo[len] = '\0'; /*add the null terminating byte*/
+	len--; /* back to last number before null*/
+
 	/*convert octal to character str*/
-	while (len > 0)
+	while (len >= 0)
 	{
-		memo[len - 1] = (numb % divisor) + '0';
+		memo[len] = (numb % divisor) + '0';
 		numb /= divisor;
 		len--;
 	}
-	while (memo[i] >= '\0')
+	while (memo[i] != '\0')
 	{
 		_putchar(memo[i]);
 		i++;
