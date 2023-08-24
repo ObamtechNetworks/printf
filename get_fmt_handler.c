@@ -13,6 +13,9 @@ int (*get_fmt_handler(char *str))(va_list)
 		{"d", print_integer},
 		{"i", print_integer},
 		{"u", print_uint},
+		{"o", print_octal},
+		{"x", print_hex_low},
+		{"X", print_hex_high},
 		{"b", print_binary},
 		{NULL, NULL}
 	};

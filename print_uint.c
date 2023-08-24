@@ -30,7 +30,7 @@ int print_uint(va_list ab)
 	buffer[len] = '\0'; /*add the null terminating byte*/
 	/*fill the buffer with numbers in reverse order*/
 	len--; /*adjust back to last number before null*/
-	while (len > 0)
+	while (len >= 0)
 	{
 		buffer[len] = (numb % divisor) + '0';/*get last digit*/
 		numb /= divisor;/*get first digit*/

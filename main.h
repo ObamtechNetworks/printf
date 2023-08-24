@@ -45,7 +45,6 @@ int _putchar(char c);
 int print_uint(va_list ab);
 
 /*base conversion helper*/
-int print_int_base(va_list ab, int base);
 
 /* print_start_finish.c module*/
 int print_start_fin(char *start, char *stop);
